@@ -13,10 +13,8 @@ RUN mkdir -p /lagrange
 COPY Lagrange.Milky /lagrange/
 RUN chmod +x /lagrange/Lagrange.Milky
 
-# 创建启动脚本
 RUN cat > /lagrange/entrypoint.sh << 'EOF'
 #!/bin/bash
-# 检查 /data 中是否存在 Lagrange.Milky 二进制文件
 if [ ! -f "/data/Lagrange.Milky" ]; then
     echo "Binary not found in /data, copying from /lagrange..."
     cp /lagrange/Lagrange.Milky /data/
@@ -31,7 +29,5 @@ RUN chmod +x /lagrange/entrypoint.sh
 
 RUN useradd -r -s /bin/false lagrange && \
     chown -R lagrange:lagrange /lagrange
-
-USER lagrange
 
 ENTRYPOINT ["/lagrange/entrypoint.sh"]
