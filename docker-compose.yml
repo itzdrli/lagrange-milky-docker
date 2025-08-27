@@ -1,0 +1,17 @@
+services:
+  lagrange-milky:
+    build: . 
+    container_name: lagrange-milky
+    restart: unless-stopped
+    volumes:
+      - ./:/lagrange
+    working_dir: /lagrange
+    dns: 
+      - 8.8.8.8
+      - 9.9.9.9
+    networks:
+      - koi_koishi
+
+networks:
+  koi_koishi:
+    external: true
