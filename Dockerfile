@@ -13,7 +13,7 @@ COPY Lagrange.Milky .
 RUN chmod +x ./Lagrange.Milky
 
 RUN useradd -r -s /bin/false lagrange && \
-    chown -R lagrange:lagrange /app
+    chown -R lagrange:lagrange /lagrange
 
 USER lagrange
 
