@@ -4,8 +4,7 @@ services:
     container_name: lagrange-milky
     restart: unless-stopped
     volumes:
-      - ./:/lagrange
-    working_dir: /lagrange
+      - .:/data
     dns: 
       - 8.8.8.8
       - 9.9.9.9
